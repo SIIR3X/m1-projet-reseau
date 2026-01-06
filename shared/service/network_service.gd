@@ -60,7 +60,7 @@ var server_connection: ServerConnection = null
 var client_connection: ClientConnection = null
 
 ## IP address of the server.
-var server_ip: String = "0.0.0.0"
+var server_ip: String = "176.143.241.121"
 
 ## Port for TCP server.
 var server_tcp_port: int = 9111
@@ -92,7 +92,7 @@ func _init() -> void:
 	if is_server():
 		server_connection = ServerConnection.new(server_ip, server_tcp_port, server_udp_port)
 	else:
-		client_connection = ClientConnection.new("127.0.0.1", server_tcp_port, server_udp_port)
+		client_connection = ClientConnection.new(server_ip, server_tcp_port, server_udp_port)
 	
 	var connection: ConnectionBase = (server_connection as ConnectionBase) if server_connection else (client_connection as ConnectionBase)
 	connection.name = "Connection"
