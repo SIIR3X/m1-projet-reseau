@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv7u7s7eix8lx"]
+
+[ext_resource type="Script" uid="uid://btqvy3g46davi" path="res://client/controller/component/logon/login_popup.gd" id="1_kbqxy"]
+
+[node name="LoginPopup" type="Window"]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Login"
+position = Vector2i(0, 36)
+size = Vector2i(300, 150)
+visible = false
+exclusive = true
+always_on_top = true
+transparent = true
+popup_window = true
+popup_wm_hint = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("1_kbqxy")
+
+[node name="Container" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="LoginInfo" type="VBoxContainer" parent="Container/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Container/VBox/LoginInfo"]
+layout_mode = 2
+
+[node name="Username" type="Label" parent="Container/VBox/LoginInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Username:"
+
+[node name="UsernameBox" type="LineEdit" parent="Container/VBox/LoginInfo/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="Lines" type="HBoxContainer" parent="Container/VBox/LoginInfo"]
+layout_mode = 2
+
+[node name="Password" type="Label" parent="Container/VBox/LoginInfo/Lines"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Password:"
+
+[node name="PasswordBox" type="LineEdit" parent="Container/VBox/LoginInfo/Lines"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
+secret = true
+
+[node name="Buttons" type="MarginContainer" parent="Container/VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="List" type="HBoxContainer" parent="Container/VBox/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CancelButton" type="Button" parent="Container/VBox/Buttons/List"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="LoginButton" type="Button" parent="Container/VBox/Buttons/List"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Login"

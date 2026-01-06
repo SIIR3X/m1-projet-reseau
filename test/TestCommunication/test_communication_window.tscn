@@ -1,0 +1,185 @@
+[gd_scene load_steps=3 format=3 uid="uid://csuy1vqanbu3b"]
+
+[ext_resource type="Script" uid="uid://ct6v0u4odfo40" path="res://test/TestCommunication/test_communication_window.gd" id="1_6ol86"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4p0t"]
+font_size = 25
+
+[node name="TestInterface" type="Control" node_paths=PackedStringArray("status_label", "send_button", "client_id", "output", "method", "packet_input", "api_command", "api_arguments")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ol86")
+status_label = NodePath("Status")
+send_button = NodePath("Send")
+client_id = NodePath("ClientID")
+output = NodePath("Output")
+method = NodePath("Method")
+packet_input = NodePath("TabContainer/Packet/Input")
+api_command = NodePath("TabContainer/API/CommandName")
+api_arguments = [NodePath("TabContainer/API/Arg1"), NodePath("TabContainer/API/Arg2"), NodePath("TabContainer/API/Arg3"), NodePath("TabContainer/API/Arg4"), NodePath("TabContainer/API/Arg5")]
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017361112
+anchor_top = 0.024691358
+anchor_right = 0.9774306
+anchor_bottom = 0.097222224
+text = "Status"
+label_settings = SubResource("LabelSettings_m4p0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Send" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37413195
+anchor_top = 0.28858024
+anchor_right = 0.9791667
+anchor_bottom = 0.39197534
+text = "Send"
+metadata/_edit_use_anchors_ = true
+
+[node name="ClientID" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.16820993
+anchor_right = 0.6171875
+anchor_bottom = 0.2685185
+offset_top = -3.0517578e-05
+placeholder_text = "Client ID"
+metadata/_edit_use_anchors_ = true
+
+[node name="Output" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37413195
+anchor_top = 0.40895063
+anchor_right = 0.9809028
+anchor_bottom = 0.9814815
+text = ">>> Output"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+indent_wrapped_lines = true
+tab_input_mode = false
+use_default_word_separators = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018229166
+anchor_top = 0.12191358
+anchor_right = 0.35677084
+anchor_bottom = 0.97993827
+current_tab = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Packet" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Input" type="TextEdit" parent="TabContainer/Packet"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033333335
+anchor_top = 0.03047619
+anchor_right = 0.96410257
+anchor_bottom = 0.975238
+placeholder_text = "Type your message here"
+indent_wrapped_lines = true
+tab_input_mode = false
+use_default_word_separators = false
+metadata/_edit_use_anchors_ = true
+
+[node name="API" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CommandName" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046153847
+anchor_top = 0.04
+anchor_right = 0.9794872
+anchor_bottom = 0.17015642
+placeholder_text = "Command"
+metadata/_edit_use_anchors_ = true
+
+[node name="Arg1" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035897437
+anchor_top = 0.19809523
+anchor_right = 0.9692308
+anchor_bottom = 0.32825166
+placeholder_text = "Argument 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Arg2" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033333335
+anchor_top = 0.35619047
+anchor_right = 0.96666664
+anchor_bottom = 0.4863469
+placeholder_text = "Argument 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Arg3" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03076923
+anchor_top = 0.51809525
+anchor_right = 0.96410257
+anchor_bottom = 0.6482516
+placeholder_text = "Argument 3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Arg4" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035897437
+anchor_top = 0.6780952
+anchor_right = 0.9692308
+anchor_bottom = 0.8082516
+placeholder_text = "Argument 4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Arg5" type="LineEdit" parent="TabContainer/API"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035897437
+anchor_top = 0.83619046
+anchor_right = 0.9692308
+anchor_bottom = 0.96634686
+placeholder_text = "Argument 5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Method" type="OptionButton" parent="."]
+layout_mode = 0
+anchor_left = 0.6267361
+anchor_top = 0.16820988
+anchor_right = 0.9774306
+anchor_bottom = 0.2685185
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "TCP"
+popup/item_0/id = 0
+popup/item_1/text = "UDP"
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bocouvpweaxqv"]
+
+[ext_resource type="Script" uid="uid://bf1hbp7yk5a4u" path="res://client/controller/screen/mode_selection.gd" id="1_28vqh"]
+
+[node name="ModeSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28vqh")
+return_scene = "uid://dsm77fi8n3lb0"
+bot_mode_scene = "uid://7aytlhyvwfq0"
+pvp_mode_scene = "uid://c5lx2wxvexrrh"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.075
+anchor_right = 0.75
+anchor_bottom = 0.175
+theme_override_font_sizes/font_size = 30
+text = "Choisissez votre mode de jeu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Modes" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.75
+theme_override_constants/separation = 12
+
+[node name="BotModeButton" type="Button" parent="Modes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Robot"
+
+[node name="PvPModeButton" type="Button" parent="Modes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "PvP"
+
+[node name="ReturnButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.90000004
+anchor_right = 0.2
+anchor_bottom = 0.95000005
+offset_right = 1.5258789e-05
+offset_bottom = -6.1035156e-05
+text = "Retour"

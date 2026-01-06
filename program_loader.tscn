@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcklsrshndhxm"]
+
+[ext_resource type="Script" uid="uid://tg7ljhpvp28j" path="res://main.gd" id="1_qnqs2"]
+
+[node name="ProgramLoader" type="Node"]
+script = ExtResource("1_qnqs2")
+client_start_uid = "uid://dsm77fi8n3lb0"

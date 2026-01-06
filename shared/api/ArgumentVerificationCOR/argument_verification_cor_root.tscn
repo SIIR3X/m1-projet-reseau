@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds8btlcii3kwc"]
+
+[ext_resource type="Script" uid="uid://cg07fqiyxap5g" path="res://shared/api/ArgumentVerificationCOR/argument_verification_cor_root.gd" id="1_uwci4"]
+[ext_resource type="Script" uid="uid://5wts6kxh0gld" path="res://shared/api/ArgumentVerificationCOR/ArgumentVerificationNode/argument_verification_cor_node_primitives.gd" id="2_2nlfs"]
+[ext_resource type="Script" uid="uid://ca6jqfpulmuq1" path="res://shared/api/ArgumentVerificationCOR/ArgumentVerificationNode/argument_verification_cor_node_array.gd" id="3_5kh3g"]
+[ext_resource type="Script" uid="uid://bkpjq6xf0hsgn" path="res://shared/api/ArgumentVerificationCOR/ArgumentVerificationNode/argument_verification_cor_node_dictionary.gd" id="4_hho2c"]
+[ext_resource type="Script" uid="uid://ber0sh6avb8ic" path="res://shared/api/ArgumentVerificationCOR/ArgumentVerificationNode/argument_verification_cor_node_object.gd" id="5_fde23"]
+
+[node name="ArgumentVerificationCORRoot" type="Node"]
+script = ExtResource("1_uwci4")
+
+[node name="Primitive" type="Node" parent="."]
+script = ExtResource("2_2nlfs")
+
+[node name="Array" type="Node" parent="."]
+script = ExtResource("3_5kh3g")
+
+[node name="Dictionary" type="Node" parent="."]
+script = ExtResource("4_hho2c")
+
+[node name="Object" type="Node" parent="."]
+script = ExtResource("5_fde23")

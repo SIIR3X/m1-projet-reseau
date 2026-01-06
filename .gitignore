@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+addons/
+.idea/
+.vscode/
+credentials.cfg
+client.exe
+client.console.exe
+server_users_db.cfg
+server.console.exe
+server.exe
+software_client_config.cfg
+software_server_config.cfg

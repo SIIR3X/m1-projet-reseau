@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BatailleNavale"
+run/main_scene="uid://bcklsrshndhxm"
+run/print_header=false
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Context="*res://shared/service/context.gd"
+NetworkService="*res://shared/service/network_service.gd"
+API="*res://shared/service/api.gd"
+SerializationService="*res://shared/service/serialization_service.gd"
+Players="*res://shared/service/players.gd"
+LoginService="*res://shared/service/login_service.gd"
+Chat="*res://shared/service/chat.gd"
+LobbyService="*res://shared/service/lobby_service.gd"
+GameService="*res://shared/service/game_service.gd"
+NotificationService="*res://shared/service/notification_service.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "yellow",
+"res://client/": "orange",
+"res://shared/": "blue",
+"res://test/": "green"
+}
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true

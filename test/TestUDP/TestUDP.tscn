@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkict4fpw82y0"]
+
+[ext_resource type="Script" uid="uid://iyjgeo7ppo3v" path="res://test/TestUDP/test_serveur_udp.gd" id="1_bpmvx"]
+[ext_resource type="Script" uid="uid://d3x6c25f8wbhb" path="res://test/TestUDP/test_client_udp.gd" id="2_kc2iv"]
+
+[node name="Client" type="Node"]
+script = ExtResource("2_kc2iv")
+
+[node name="Serveur" type="Node" parent="."]
+script = ExtResource("1_bpmvx")

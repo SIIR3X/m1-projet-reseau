@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwj83sqn57tgj"]
+
+[ext_resource type="Script" uid="uid://1de7c0mg66tl" path="res://shared/serialization/SerializationCOR/serialization_cor_root.gd" id="1_04hew"]
+[ext_resource type="Script" uid="uid://cusc82u3ufme2" path="res://shared/serialization/SerializationCOR/SerializationNode/serialization_cor_node_primitives.gd" id="2_tg6cg"]
+[ext_resource type="Script" uid="uid://cy8y5l4m2cuys" path="res://shared/serialization/SerializationCOR/SerializationNode/serialization_cor_node_array.gd" id="3_28op7"]
+[ext_resource type="Script" uid="uid://cl4qh0n3u6t8a" path="res://shared/serialization/SerializationCOR/SerializationNode/serialization_cor_node_dictionary.gd" id="4_dd0my"]
+[ext_resource type="Script" uid="uid://bhd0c7x3hjw4s" path="res://shared/serialization/SerializationCOR/SerializationNode/serialization_cor_node_object.gd" id="5_puwa1"]
+
+[node name="SerializationCORRoot" type="Node"]
+script = ExtResource("1_04hew")
+metadata/_custom_type_script = "uid://1de7c0mg66tl"
+
+[node name="Primitive" type="Node" parent="."]
+script = ExtResource("2_tg6cg")
+metadata/_custom_type_script = "uid://cusc82u3ufme2"
+
+[node name="Array" type="Node" parent="."]
+script = ExtResource("3_28op7")
+metadata/_custom_type_script = "uid://cy8y5l4m2cuys"
+
+[node name="Dictionary" type="Node" parent="."]
+script = ExtResource("4_dd0my")
+metadata/_custom_type_script = "uid://cl4qh0n3u6t8a"
+
+[node name="Object" type="Node" parent="."]
+script = ExtResource("5_puwa1")
+metadata/_custom_type_script = "uid://bhd0c7x3hjw4s"

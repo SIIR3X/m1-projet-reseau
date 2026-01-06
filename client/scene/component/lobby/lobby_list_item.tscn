@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ghgokcrsoxm"]
+
+[ext_resource type="Script" uid="uid://b4qlpeo6arl8n" path="res://client/controller/component/lobby/lobby_list_item.gd" id="1_scjv3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdohk"]
+font_size = 20
+
+[node name="LobbyListItem" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_scjv3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LobbyListItem" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerName" type="Label" parent="MarginContainer/LobbyListItem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "PlayerName"
+label_settings = SubResource("LabelSettings_vdohk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/LobbyListItem"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartyCodeBox" type="LineEdit" parent="MarginContainer/LobbyListItem/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Code privé de partie"
+secret = true
+
+[node name="JoinButton" type="Button" parent="MarginContainer/LobbyListItem/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true

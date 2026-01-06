@@ -1,0 +1,124 @@
+@startuml Bataille Navale
+
+skinparam dpi 120
+skinparam backgroundColor #FAFBFF
+skinparam shadowing false
+skinparam class {
+    BackgroundColor #EAF3FF
+    BorderColor #2A5CAA
+    FontColor #1A1A1A
+    FontSize 12
+    FontStyle plain
+    AttributeFontSize 11
+    AttributeFontColor #333333
+    AttributeIconSize 0
+    ArrowColor #2A5CAA
+    ArrowThickness 1
+}
+skinparam Arrow {
+    FontSize 11
+    FontColor #0A1F44
+    FontStyle italic
+    Color #1B3C72
+    Thickness 1
+}
+skinparam linetype ortho
+skinparam ArrowLabelDistance 10
+skinparam ArrowLabelFontSize 11
+
+enum Orientation {
+	HORIZONTAL
+	VERTICAL
+}
+
+enum ShotResult {
+	OUT_BOUNDS
+	MISS
+	HIT
+	SUNK
+	ALREADY_SHOT
+}
+
+class Game {
+	+ Player: player1
+	+ Player: player2
+	+ int: current_player_index
+	+ bool: is_running
+	+ void _next_turn()
+	+ Player get_current_player()
+	+ Player get_opponent()
+	+ bool has_ended()
+	+ Player get_winner()
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+class Player {
+	+ String: name
+	+ Board: board
+	+ ShotResult shoot_at(Board: enemy_board, Coordinate: coordinate)
+	+ bool has_lost()
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+class Board {
+	+ int: width
+	+ int: height
+	+ Array[Array]: grid
+	+ Array[Ship]: ships
+	+ void _initialize_grid()
+	+ bool _can_place_ship(Ship: ship, Coordinate: start, int: orientation)
+	+ Cell get_cell(int: x, int: y)
+	+ bool place_ship(Ship: ship, Coordinate: start, int: orientation)
+	+ int register_shot(Coordinate: coordinate)
+	+ bool all_ship_sunk()
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+class Cell {
+	+ Coordiante: coordinate
+	+ Ship?: ship
+	+ bool: was_shot
+	+ bool has_ship()
+	+ bool has_been_shot()
+	+ void mark_shot()
+	+ void assign_ship(Ship: _ship)
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+class Ship {
+	+ String: name
+	+ int: length
+	+ Array[Coordinate]?: coordinates
+	+ Array[Coordinate]?: hits
+	+ void register_hit(Coordinate: coordinate)
+	+ bool is_sunk()
+	+ void place_on(Coordinate: start, Orientation: orientation)
+	+ void remove()
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+class Coordinate {
+	+ int: x
+	+ int: y
+	+ bool equals(Coordinate: other)
+	+ Dictionnary to_dict()
+	{static} Coordinate from_dict(Dictionnary: data)
+}
+
+Game o-- "2 " Player
+Player *-- Board
+Player ..> ShotResult
+Board *-- "0..* " Cell
+Board *-- "0..* " Ship
+Board ..> ShotResult
+Cell --> "0..1    " Ship
+Cell *-- "1 " Coordinate
+Ship *-- "0..3" Coordinate
+Ship ..> Orientation
+
+@enduml

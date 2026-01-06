@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsm77fi8n3lb0"]
+
+[ext_resource type="Script" uid="uid://c3ix1cmxom6mi" path="res://client/controller/screen/main_screen.gd" id="1_4h5yt"]
+[ext_resource type="PackedScene" uid="uid://bv7u7s7eix8lx" path="res://client/scene/component/logon/login_popup.tscn" id="2_dvbkk"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4h5yt")
+on_play_scene = "uid://bocouvpweaxqv"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.2
+anchor_right = 0.75
+anchor_bottom = 0.3
+theme_override_font_sizes/font_size = 50
+text = "Bataille Navale"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.55
+anchor_right = 0.6
+anchor_bottom = 0.85
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Jouer"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quitter"
+metadata/_edit_use_anchors_ = true
+
+[node name="AccountLogin" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025173612
+anchor_top = 0.91820985
+anchor_right = 0.2769097
+anchor_bottom = 0.9691358
+metadata/_edit_use_anchors_ = true
+
+[node name="LoginButton" type="Button" parent="AccountLogin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Login
+"
+
+[node name="SignupButton" type="Button" parent="AccountLogin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sign up"
+
+[node name="AccountLogout" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025173612
+anchor_top = 0.91820985
+anchor_right = 0.2769097
+anchor_bottom = 0.9691358
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoutButton" type="Button" parent="AccountLogout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Log out"
+
+[node name="Username" type="Label" parent="AccountLogout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Username"
+vertical_alignment = 1
+
+[node name="LoginPopup" parent="." instance=ExtResource("2_dvbkk")]
+unique_name_in_owner = true
+initial_position = 2
+
+[node name="SignupPopup" parent="." instance=ExtResource("2_dvbkk")]
+unique_name_in_owner = true
+title = "Sign up"
+initial_position = 2
+is_login = false

@@ -1,0 +1,169 @@
+[gd_scene load_steps=4 format=3 uid="uid://7aytlhyvwfq0"]
+
+[ext_resource type="PackedScene" uid="uid://5auatog4tls4" path="res://client/scene/component/chat/chat.tscn" id="1_5wtm7"]
+[ext_resource type="Script" uid="uid://de0gs63f0gc4u" path="res://client/controller/screen/base_game.gd" id="1_ubxnd"]
+[ext_resource type="PackedScene" uid="uid://cq2npl0uxojc" path="res://client/scene/component/game/board.tscn" id="3_feol0"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ubxnd")
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.12
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="PlayerA" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="TopBar/PlayerA"]
+layout_mode = 2
+text = "PlayerA"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="TopBar/PlayerA"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "5:00"
+horizontal_alignment = 1
+
+[node name="VSLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "VS"
+horizontal_alignment = 1
+
+[node name="PlayerB" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="TopBar/PlayerB"]
+layout_mode = 2
+text = "PlayerB"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="TopBar/PlayerB"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "5:00"
+horizontal_alignment = 1
+
+[node name="Boards" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="Boards"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OwnLabelContainer" type="PanelContainer" parent="Boards/LeftSide"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OwnLabel" type="Label" parent="Boards/LeftSide/OwnLabelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Vos navires"
+horizontal_alignment = 1
+
+[node name="OwnBoardContainer" type="AspectRatioContainer" parent="Boards/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OwnBoard" parent="Boards/LeftSide/OwnBoardContainer" instance=ExtResource("3_feol0")]
+layout_mode = 2
+
+[node name="RightSide" type="VBoxContainer" parent="Boards"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EnemyLabelContainer" type="PanelContainer" parent="Boards/RightSide"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyLabel" type="Label" parent="Boards/RightSide/EnemyLabelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Attaquez votre adversaire"
+horizontal_alignment = 1
+
+[node name="EnemyBoardContainer" type="AspectRatioContainer" parent="Boards/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EnemyBoard" parent="Boards/RightSide/EnemyBoardContainer" instance=ExtResource("3_feol0")]
+layout_mode = 2
+
+[node name="DisconnectedOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="DisconnectedOverlay"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Message" type="Label" parent="DisconnectedOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+theme_override_font_sizes/font_size = 30
+text = "L'autre joueur s'est déconnecté.
+Veuillez patienter... (1 minute)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChatButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.015432099
+anchor_right = 0.1
+anchor_bottom = 0.06790123
+text = "Chat"
+metadata/_edit_use_anchors_ = true
+
+[node name="Chat" parent="." instance=ExtResource("1_5wtm7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0137
+anchor_top = 0.0737
+anchor_right = 0.292
+anchor_bottom = 0.392
+mouse_filter = 2

@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://5auatog4tls4"]
+
+[ext_resource type="Script" uid="uid://dt8oiw1mqlwqs" path="res://client/controller/component/chat/chat_controller.gd" id="1_kuc1m"]
+[ext_resource type="PackedScene" uid="uid://ijnvgauf4hox" path="res://client/scene/component/chat/chat_label.tscn" id="2_bp0fk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27331"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Chat" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 0.4
+script = ExtResource("1_kuc1m")
+chat_template = ExtResource("2_bp0fk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ChatParts" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="ChatContent" type="ScrollContainer" parent="Margin/ChatParts"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_27331")
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="Margin/ChatParts/ChatContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="VBoxContainer" parent="Margin/ChatParts/ChatContent/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="ChatBar" type="HBoxContainer" parent="Margin/ChatParts"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Box" type="LineEdit" parent="Margin/ChatParts/ChatBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.0
+theme_override_font_sizes/font_size = 10
+placeholder_text = "Type your message"
+
+[node name="SendButton" type="Button" parent="Margin/ChatParts/ChatBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "Send"

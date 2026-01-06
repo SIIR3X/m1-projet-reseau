@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5lx2wxvexrrh"]
+
+[ext_resource type="Script" uid="uid://bepm3c13rx6ud" path="res://client/controller/screen/lobby_list.gd" id="1_lb672"]
+[ext_resource type="PackedScene" uid="uid://5ghgokcrsoxm" path="res://client/scene/component/lobby/lobby_list_item.tscn" id="2_l36lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb672"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lb672"]
+
+[node name="LobbyList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb672")
+return_scene = "uid://bocouvpweaxqv"
+party_creation_scene = "uid://cud2pec04y2qt"
+party_list_item_canvas = ExtResource("2_l36lr")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.075
+anchor_right = 0.75
+anchor_bottom = 0.175
+theme_override_font_sizes/font_size = 30
+text = "Liste des parties existantes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.90000004
+anchor_right = 0.95
+anchor_bottom = 0.95
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Retour"
+
+[node name="VSeparator" type="VSeparator" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.53
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lb672")
+
+[node name="RefreshButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "🔄"
+
+[node name="PartyCreation" type="HBoxContainer" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="PartyCode" type="LineEdit" parent="Buttons/PartyCreation"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Code privé de partie"
+secret = true
+
+[node name="CreatePartyButton" type="Button" parent="Buttons/PartyCreation"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Créer une partie"
+
+[node name="PartyScroll" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.225
+anchor_right = 0.8
+anchor_bottom = 0.85
+horizontal_scroll_mode = 0
+
+[node name="PartyList" type="VBoxContainer" parent="PartyScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NoPartyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.45
+anchor_right = 0.65
+anchor_bottom = 0.55
+text = "Aucune partie disponible pour le moment"
+label_settings = SubResource("LabelSettings_lb672")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LoadingLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.45
+anchor_right = 0.65
+anchor_bottom = 0.55
+text = "Chargement des parties..."
+label_settings = SubResource("LabelSettings_lb672")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="FetchTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 20.0
+autostart = true

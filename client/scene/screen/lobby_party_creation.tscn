@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cud2pec04y2qt"]
+
+[ext_resource type="Script" uid="uid://2vj5kj44ank1" path="res://client/controller/screen/lobby_party_creation.gd" id="1_la53s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lb672"]
+
+[node name="LobbyCreationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la53s")
+return_scene = "uid://c5lx2wxvexrrh"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.075
+anchor_right = 0.75
+anchor_bottom = 0.175
+theme_override_font_sizes/font_size = 30
+text = "Partie créée"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.05
+anchor_top = 0.90000004
+anchor_right = 0.20017362
+anchor_bottom = 0.9493827
+size_flags_horizontal = 3
+text = "Retour"
+metadata/_edit_use_anchors_ = true
+
+[node name="YieldLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.45
+anchor_right = 0.65
+anchor_bottom = 0.55
+text = "En attente d'un autre joueur..."
+label_settings = SubResource("LabelSettings_lb672")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ijnvgauf4hox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuc1m"]
+bg_color = Color(0, 0, 0, 0.12941177)
+
+[node name="Label" type="Label"]
+anchors_preset = -1
+anchor_right = 0.0234375
+anchor_bottom = 0.021540638
+offset_right = -27.0
+offset_bottom = -13.958333
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_kuc1m")
+text = "Label"
+metadata/_edit_use_anchors_ = true

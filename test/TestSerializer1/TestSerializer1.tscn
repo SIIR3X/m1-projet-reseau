@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsmqfrekv540y"]
+
+[ext_resource type="Script" uid="uid://duf062g7tqrc6" path="res://test/TestSerializer1/test_serializer_1.gd" id="1_tjtis"]
+
+[node name="Serializer" type="Node"]
+script = ExtResource("1_tjtis")

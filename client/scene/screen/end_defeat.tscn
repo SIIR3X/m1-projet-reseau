@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c330nwp01s78n"]
+
+[ext_resource type="PackedScene" uid="uid://dmraf4xow4ugo" path="res://client/scene/screen/end.tscn" id="1_nuxb3"]
+
+[node name="End" instance=ExtResource("1_nuxb3")]
+
+[node name="ReturnButton" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+
+[node name="Label" parent="." index="1"]
+text = "Tu as perdu..."

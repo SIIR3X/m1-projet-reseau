@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmraf4xow4ugo"]
+
+[ext_resource type="Script" uid="uid://dw8ak24cdtw1k" path="res://client/controller/screen/end.gd" id="1_8ahsp"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ahsp")
+return_scene = "uid://dsm77fi8n3lb0"
+
+[node name="ReturnButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.35
+anchor_top = 0.75
+anchor_right = 0.64947915
+anchor_bottom = 0.84876543
+size_flags_horizontal = 3
+text = "Retourner au menu principal"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.4
+anchor_right = 0.7
+anchor_bottom = 0.6
+theme_override_font_sizes/font_size = 50
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
